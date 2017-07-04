@@ -1,0 +1,16 @@
+{
+  "name": "cars",
+  "version": "1.0.0",
+  "description": "Neural network test for working with a car dataset",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Zehe",
+  "license": "ISC",
+  "dependencies": {
+    "fast-csv": "^2.4.0",
+    "synaptic": "^1.0.12"
+  }
+}
