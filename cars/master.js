@@ -12,8 +12,9 @@ totalArrays = inputarray.length;
 for(let i=0;i<numthreads;i++){
 	var worker = cluster.fork();
 	worker.on('message',(data)=>{
-		console.log(this);
-		console.log(data);
+		// console.log(this);
+		// console.log(data);
+		console.log(data.wl.trainsplit+" , "+data.value);
 
 		if(inputarray.length!=0){
 			cluster.workers[data.workerid].send(inputarray.pop())
