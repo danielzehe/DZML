@@ -111,7 +111,7 @@ process.on('message',function(workload){
 			// console.log(test.output);
 		}
 		// console.log('The error correctness measure for '+Math.round(k.trainsplit*100)+'% traning data is '+(equalcounter/testset.length)*100 +'% ');
-		process.send({'wl':k,'value':(equalcounter/testset.length)*100});
+		process.send({'wl':k,'value':(equalcounter/testset.length)*100,'workerid':cluster.worker.id});
 	
 
 })
