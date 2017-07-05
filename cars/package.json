@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "fast-csv": "^2.4.0",
+    "knuth-shuffle": "^1.0.1",
     "synaptic": "^1.0.12"
   }
 }

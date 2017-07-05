@@ -1,6 +1,7 @@
 const synaptic = require('synaptic')
 const cluster = require('cluster')
 const fs = require('fs')
+const shuffle = require('knuth-shuffle').knuthShuffle
 
 const cars = JSON.parse(fs.readFileSync('cars.json'))
 	// console.log(cars)
@@ -39,7 +40,7 @@ const cars = JSON.parse(fs.readFileSync('cars.json'))
 		return returnobject;
 	});
 process.on('message',function(workload){
-	
+	const shuffledNormalizedCars =	shuffle(normalizedCars.slice(0));
 
 	// console.log(normalizedCars);
 
