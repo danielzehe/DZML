@@ -5,7 +5,7 @@ cluster.setupMaster({exec:'index.js'});
 let inputarray = new Array();
 
 
-for(var k=0;k<=1.0;k+=0.01){
+for(var k=0;k<=1.0;k+=0.25){
 	inputarray.push({'trainsplit':k});
 }
 totalArrays = inputarray.length;

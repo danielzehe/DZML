@@ -40,7 +40,8 @@ const cars = JSON.parse(fs.readFileSync('cars.json'))
 		return returnobject;
 	});
 process.on('message',function(workload){
-	const shuffledNormalizedCars =	shuffle(normalizedCars.slice(0));
+	// const shuffledNormalizedCars =	shuffle(normalizedCars.slice(0));
+	const shuffledNormalizedCars =normalizedCars;
 
 	// console.log(normalizedCars);
 
@@ -51,11 +52,11 @@ process.on('message',function(workload){
 	// for(k of workload){
 	//starting the taining by creating a training set
 
-		let trainsplit = Math.round(normalizedCars.length*k.trainsplit);
+		let trainsplit = Math.round(shuffledNormalizedCars.length*k.trainsplit);
 		let trainingset = new Array();
 		for(let i = 0;i<trainsplit;i++){
 			let object = {}
-			let currentcar = normalizedCars[i]
+			let currentcar = shuffledNormalizedCars[i]
 			object.input = currentcar.buying.concat(currentcar.maint,currentcar.doors,currentcar.persons,currentcar.lug_boot,currentcar.safety);
 			object.output = currentcar.class;
 			trainingset.push(object);
@@ -84,17 +85,17 @@ process.on('message',function(workload){
 		const trainer = new Trainer(myNetwork);
 		trainer.train(trainingset, {
 		    rate: .1,
-		    iterations: 10000,
-		    error: .00002,
+		    iterations: 1000,
+		    error: .002,
 		    shuffle: true,
 		    log: 0,
 		    cost: Trainer.cost.CROSS_ENTROPY
 		});
 
 		let testset = new Array();
-		for(let i = trainsplit;i<normalizedCars.length;i++){
+		for(let i = trainsplit;i<shuffledNormalizedCars.length;i++){
 			let object = {}
-			let currentcar = normalizedCars[i]
+			let currentcar = shuffledNormalizedCars[i]
 			object.input = currentcar.buying.concat(currentcar.maint,currentcar.doors,currentcar.persons,currentcar.lug_boot,currentcar.safety);
 			object.output = currentcar.class;
 			testset.push(object);

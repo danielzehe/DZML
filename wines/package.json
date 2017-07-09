@@ -1,0 +1,16 @@
+{
+  "name": "wines",
+  "version": "1.0.0",
+  "description": "machine learing to classify the wine quality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "daniel zehe",
+  "license": "ISC",
+  "dependencies": {
+    "fast-csv": "^2.4.0",
+    "knuth-shuffle": "^1.0.1",
+    "synaptic": "^1.0.12"
+  }
+}
